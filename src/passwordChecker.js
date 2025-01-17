@@ -16,6 +16,11 @@ function passwordChecker(password) {
     return false;
   }
 
+  // 4) cas d : no "IPL" (case-insensitive)
+  if (password.toLowerCase().includes("ipl")) {
+    return false;
+  }
+
   return true;
 }
 

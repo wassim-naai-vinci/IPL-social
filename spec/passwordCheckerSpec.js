@@ -37,3 +37,18 @@ describe("passwordChecker - Step 3: Digit presence", () => {
     expect(passwordChecker("Qbcg!123")).toBe(true);
   });
 });
+
+
+describe('passwordChecker - Step 4: No "IPL" (case-insensitive)', () => {
+  it('Should fail if the password contains "IPL" in any case', () => {
+    expect(passwordChecker("abIPL123!")).toBe(false);
+  });
+
+  it('Should fail if the password contains "ipl" in lowercase', () => {
+    expect(passwordChecker("abipl123!")).toBe(false);
+  });
+  
+  it('Should pass if it does not contain "IPL"', () => {
+    expect(passwordChecker("AbIP!123")).toBe(true);
+  });
+});
