@@ -14,3 +14,20 @@ describe("passwordChecker - Step 1: Min length 8", () => {
     expect(passwordChecker("")).toBe(false);
   });
 });
+
+describe("passwordChecker - Step 2: Special character", () => {
+  it("Should fail if there is no special character", () => {
+    // "Abcdef12" ne contient aucun caractère spécial
+    expect(passwordChecker("Abcdef12")).toBe(false);
+  });
+
+  it("Should pass if there are multiple special characters", () => {
+    // "Abc!def@12" contient '!' et '@'
+    expect(passwordChecker("Abc!def@12")).toBe(true);
+  });
+
+  it("Should pass if there is at least one special character", () => {
+    // "Abcdef12!" contient '!'
+    expect(passwordChecker("Abcdef12!")).toBe(true);
+  });
+});
