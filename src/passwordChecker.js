@@ -4,9 +4,15 @@ function passwordChecker(password) {
     return false;
   }
 
-  // 2) cas b : au moins un caractère spécial
+  // 2) cas b : at least one special character
   const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
   if (!specialCharRegex.test(password)) {
+    return false;
+  }
+
+  // 3) cas c : at least one digit
+  const digitRegex = /\d/;
+  if (!digitRegex.test(password)) {
     return false;
   }
 
